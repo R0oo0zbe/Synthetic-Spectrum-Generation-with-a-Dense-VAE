@@ -105,7 +105,33 @@ Commit `requirements-lock.txt` together with the repository.
 
 ## Data
 
-The DRIAMS data are not distributed in this repository. See `data/README.md`.
+The DRIAMS dataset is not distributed with this repository.
+(you can download it here:  https://datadryad.org/dataset/doi:10.5061/dryad.bzkh1899q )
+Download DRIAMS-B separately and preserve the original structure:
+
+```text
+DRIAMS-B/
+├── raw/
+│   └── 2018/
+├── preprocessed/
+│   └── 2018/
+├── binned_6000/
+│   └── 2018/
+└── id/
+    └── 2018/
+        └── 2018_clean.csv
+```
+
+The repository scripts create additional local folders:
+
+```text
+DRIAMS-B/
+├── preprocess_MaldiAMRKit/
+├── binned_6000_MaldiAMRKit/
+├── bin_comparison/
+├── vae_data/
+└── vae_results/
+```
 
 ## Repository design
 
