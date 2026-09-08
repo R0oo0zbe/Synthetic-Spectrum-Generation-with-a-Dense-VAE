@@ -145,22 +145,20 @@ The `maldi_vae/` directory is a small local library containing the reusable
 implementation. The `scripts/` directory contains the five scientific
 experiments in execution order.
 
+
+# Example Figures
 ## PCA: real vs synthetic spectra
 
 ![PCA real vs synthetic](figures/pca_real_vs_tic_synthetic.png)
 
-The PCA projection was fitted only on the real training spectra and then used to project both real and TIC-normalized synthetic spectra. The synthetic samples overlap with the real-data distribution, showing that the VAE generates spectra in realistic regions of the learned feature space.
-
-However, the synthetic spectra are more concentrated in a narrower region than the real spectra. This indicates reduced synthetic diversity and is consistent with the quantitative results showing high precision but lower recall and coverage.
+The PCA projection was fitted only on the real training spectra and then used to project both real and TIC-normalized synthetic spectra, and the synthetic samples overlap with the real-data distribution, showing that the VAE generates spectra in realistic regions of the learned feature space, however, the synthetic spectra are more concentrated in a narrower region than the real spectra. This indicates reduced synthetic diversity and is consistent with the quantitative results showing high precision but lower recall and coverage.
 
 
 ## Generative precision, recall, density, and coverage
 
 ![PRDC metrics](figures/prdc_real_real_vs_real_synthetic.png)
 
-The synthetic spectra achieve very high precision (**1.00**) and relatively high density (**1.26**), indicating that generated samples lie in well-supported regions of the real-data distribution. In contrast, recall (**0.291**) and coverage (**0.345**) are much lower than the real-vs-real baseline.
-
-This combination suggests that the model produces realistic spectra but captures only a limited fraction of the full variability present in the held-out real data. The main limitation is therefore reduced diversity rather than poor sample realism.
+The synthetic spectra achieve very high precision (**1.00**) and relatively high density (**1.26**), indicating that generated samples lie in well-supported regions of the real-data distribution, but recall (**0.291**) and coverage (**0.345**) are much lower than the real-vs-real baseline. This combination suggests that the model produces realistic spectra but captures only a limited fraction of the full variability present in the held-out real data. The main limitation is therefore reduced diversity rather than poor sample realism.
 
 
 ## Example VAE reconstructions
@@ -169,15 +167,11 @@ This combination suggests that the model produces realistic spectra but captures
 
 ![Reconstruction example 2](figures/reconstruction_02.png)
 
-These examples show that the VAE reproduces the main MALDI-TOF peak locations and overall spectral structure of held-out real spectra. The selected β = 0.01 model achieved a median test reconstruction Pearson correlation of approximately **0.936**.
-
-Some high-intensity peaks are underestimated and smaller spectral details are smoothed, which is expected from the compression imposed by the latent representation. Overall, the reconstructions show that the model learned the dominant spectral patterns well.
+These examples show that the VAE reproduces the main MALDI-TOF peak locations and overall spectral structure of held-out real spectra, and the selected β = 0.01 model achieved a median test reconstruction Pearson correlation of approximately **0.936**, some high-intensity peaks are underestimated and smaller spectral details are smoothed, which is expected from the compression imposed by the latent representation. Overall, the reconstructions show that the model learned the dominant spectral patterns well.
 
 
 ## Mean real vs synthetic spectrum
 
 ![Mean spectrum comparison](figures/tic_mean_spectrum_real_vs_synthetic.png)
 
-The mean synthetic spectrum reproduces many of the dominant peak locations observed in the real data, showing that the VAE captures important population-level spectral structure. After TIC normalization, the Pearson correlation between the real and synthetic mean spectra was approximately **0.878**.
-
-Differences remain in peak amplitudes and background intensity, indicating that the generator does not reproduce the population distribution perfectly. This is consistent with the formal evaluation, where synthetic spectra were realistic but showed reduced coverage of real-data diversity.
+The mean synthetic spectrum reproduces many of the dominant peak locations observed in the real data, showing that the VAE captures important population-level spectral structure. After TIC normalization, the Pearson correlation between the real and synthetic mean spectra was approximately **0.878**. Differences remain in peak amplitudes and background intensity, indicating that the generator does not reproduce the population distribution perfectly. This is consistent with the formal evaluation, where synthetic spectra were realistic but showed reduced coverage of real-data diversity.
