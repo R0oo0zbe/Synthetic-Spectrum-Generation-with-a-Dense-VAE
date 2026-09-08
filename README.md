@@ -107,7 +107,7 @@ Commit `requirements-lock.txt` together with the repository.
 
 The DRIAMS dataset is not distributed with this repository.
 (you can download it here:  https://datadryad.org/dataset/doi:10.5061/dryad.bzkh1899q )
-Download DRIAMS-B separately and preserve the original structure:
+Download DRIAMS-B separately and preserve the original structure then put it in scripts folder:
 
 ```text
 DRIAMS-B/
