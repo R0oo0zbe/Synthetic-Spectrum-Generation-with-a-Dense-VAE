@@ -1,5 +1,6 @@
 # DRIAMS MALDI-TOF Synthetic Spectrum Generation with a Dense β-VAE
 
+
 This repository contains the code used for a master's course project on
 synthetic MALDI-TOF spectrum generation for antimicrobial-resistance research.
 
@@ -77,18 +78,23 @@ The final β=0.01 model is frozen. Formal evaluation uses only the held-out
 - real-vs-real baseline: held-out test split into 11 + 11
 - generated spectra are TIC-normalized before formal comparison
 
-Expected final values from the completed experiment were approximately:
+Final values from the latest completed experiment are:
 
-- PCA-FD real-real, 11 vs 11: `1.37498e-05 ± 4.4002e-06`
-- PCA-FD real-synthetic, 11 vs 11: `1.73587e-05 ± 4.08365e-06`
-- PCA-FD real test-synthetic, 22 vs 22: `1.36265e-05 ± 1.98544e-06`
-- Precision: `0.995455 ± 0.014374`
-- Recall: `0.568182 ± 0.117851`
-- Density: `1.39545 ± 0.146978`
-- Coverage: `0.672727 ± 0.085173`
+- PCA-FD real-real baseline, 11 vs 11: `0.000108073 ± 4.76338e-05`
+- PCA-FD real-synthetic matched, 11 vs 11: `0.00040362 ± 4.70615e-05`
+- PCA-FD real test-synthetic, 22 vs 22: `0.00037688 ± 4.53183e-05`
+- Precision: `1.000000 ± 0.000000`
+- Recall: `0.290909 ± 0.286840`
+- Density: `1.26061 ± 0.0727693`
+- Coverage: `0.345455 ± 0.0835397`
 
-These results indicate high synthetic fidelity but incomplete coverage of the
-real-data diversity.
+The five PCA components explain approximately `48.49%` of the variance in the
+real training spectra. The matched real-vs-synthetic PCA-FD is substantially
+larger than the real-vs-real reference, while precision is perfect and recall
+and coverage are much lower. This supports the main project finding: generated
+spectra lie in realistic regions of the real-data feature space, but the frozen
+β=0.01 generator reproduces only part of the diversity present in the held-out
+real spectra.
 
 ## Environment
 
